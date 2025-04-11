@@ -16,9 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${robotoMono.variable} antialiased overflow-x-hidden `}>
-        {children}
-        <Footer />
+      <body className={`${robotoMono.variable} antialiased overflow-x-hidden`}>
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

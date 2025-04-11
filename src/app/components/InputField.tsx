@@ -16,7 +16,6 @@ interface CepData {
 
 export default function InputField() {
   const [cep, setCep] = useState("");
-
   const [data, setData] = useState<CepData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -29,7 +28,6 @@ export default function InputField() {
 
     try {
       const response = await fetch(`/api/cep?cep=${encodeURIComponent(cep)}`);
-      
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -45,52 +43,50 @@ export default function InputField() {
       setLoading(false);
     }
   };
+
   return (
     <>
-      <div className="flex justify-center items-center gap-2">
-      <input
-        type="text"
-        placeholder="Digite o código do CEP"
-        className="font-mono w-130 bg-white shadow-lg p-3 rounded-md m-1.5"
-        value={cep}
-        onChange={(e) => setCep(e.target.value)}
-      />
-      <div>
+      <div className="flex flex-col md:flex-row justify-center items-center gap-2 w-full px-4">
+        <input
+          type="text"
+          placeholder="Digite o código do CEP"
+          className="font-mono w-full md:w-[400px] bg-white shadow-lg p-3 rounded-md"
+          value={cep}
+          onChange={(e) => setCep(e.target.value)}
+        />
         <button
           onClick={handleSearch}
           disabled={loading}
-          className=" cursor-pointer text-2xl bg-blue-500 font-mono text-white px-4 py-2 rounded-md transition duration-300 hover:bg-blue-600 disabled:bg-gray-400"
+          className="w-full md:w-auto text-2xl bg-blue-500 font-mono text-white px-4 py-2 rounded-md transition duration-300 hover:bg-blue-600 disabled:bg-gray-400"
         >
           {loading ? "Buscando..." : "Buscar"}
         </button>
+      </div>
 
-      </div>
-      
-      </div>
-      {error && <p className="text-red-500 mb-4">{error}</p>}
+      {error && <p className="text-red-500 mb-4 text-center mt-2">{error}</p>}
 
       {data && (
-        <div className=" text-2xl p-4 rounded">
+        <div className="text-2xl p-4 mt-4 rounded-md bg-yellow-100 shadow-md max-w-full overflow-x-auto">
           <h2 className="text-xl font-semibold mb-2">Resultado:</h2>
           <ul className="space-y-2">
             <li>
-              <strong>CEP: {data.cep} </strong>
+              <strong>CEP: {data.cep}</strong>
             </li>
             <li>
-              <strong>Logradouro: {data.logradouro} </strong>
+              <strong>Logradouro: {data.logradouro}</strong>
             </li>
             <li>
-              <strong>Bairro: {data.bairro} </strong>
+              <strong>Bairro: {data.bairro}</strong>
             </li>
             <li>
-              <strong>Cidade: {data.localidade} </strong>
+              <strong>Cidade: {data.localidade}</strong>
             </li>
             <li>
-              <strong>Estado: {data.uf} </strong>
+              <strong>Estado: {data.uf}</strong>
             </li>
             {data.complemento && (
               <li>
-                <strong>Complemento: {data.complemento} </strong>
+                <strong>Complemento: {data.complemento}</strong>
               </li>
             )}
           </ul>

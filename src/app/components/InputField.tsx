@@ -53,7 +53,7 @@ export default function InputField() {
 
   return (
     <>
-      <div className="flex md:flex-row justify-center items-center gap-4 w-full mx-auto">
+      <div className="flex flex-col justify-center items-center gap-4 w-full mx-auto">
         <input
           type="text"
           placeholder="Digite o código do CEP"
@@ -65,7 +65,7 @@ export default function InputField() {
         <button
           onClick={handleSearch}
           disabled={loading}
-          className="w-full md:w-auto text-lg bg-blue-500 font-mono text-white px-5 py-3 rounded-md transition duration-300 hover:bg-blue-600 disabled:bg-gray-400"
+          className="w-full md:w-auto text-lg bg-blue-500 font-mono text-white px-5 py-2 rounded-md transition duration-300 hover:bg-blue-600 disabled:bg-gray-400"
         >
           {loading ? "Buscando..." : "Buscar"}
         </button>

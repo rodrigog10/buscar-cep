@@ -12,7 +12,7 @@ export default function Footer() {
           <span className="text-cyan-300 drop-shadow-[0_0_8px_cyan]">
             Rodrigo Bispo
           </span>
-          <Braces className="text-stone-300" size={20} />
+          <Braces className="text-stone-300 drop-shadow-[0_0_8px_white]" size={20} />
         </div>
 
         {/* Redes sociais em coluna */}

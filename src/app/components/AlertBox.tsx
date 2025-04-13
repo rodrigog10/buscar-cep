@@ -8,7 +8,7 @@ export default function AlertBox() {
     <FadeInSection>
       <div className="w-full items-start text-left flex flex-col mt-8 p-5">
         <h2 className="text-3xl font-bold drop-shadow-[0_0_9px_red] text-red-600  mb-4 flex gap-x-2">
-          Fique atento <TriangleAlert size={33} />
+          Atenção <TriangleAlert size={33} />
         </h2>
         <div className="font-bold">
           <h1 className="text-2xl mb-4">

@@ -12,7 +12,7 @@ export default function AboutSection() {
     >
       <div className="w-full text-left p-10 ">
         <FadeInSection>
-          <h1 className="text-4xl  font-bold ">O que é o CEP?</h1>
+          <h1 className="text-4xl  font-bold my-10 ">O que é o CEP?</h1>
 
           <p className="text-2xl max-w-2xl ">
             "CEP" é a sigla para Código de Endereçamento Postal, um conjunto de

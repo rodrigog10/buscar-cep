@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 
+
 interface CepData {
   cep: string;
   logradouro: string;
@@ -44,15 +45,22 @@ export default function InputField() {
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <>
-      <div className="flex md:flex-row justify-center items-center gap-4 w-full px-4 max-w-4xl mx-auto">
+      <div className="flex md:flex-row justify-center items-center gap-4 w-full mx-auto">
         <input
           type="text"
           placeholder="Digite o código do CEP"
           className="font-mono w-full md:max-w-md bg-white shadow-lg p-3 rounded-md"
           value={cep}
           onChange={(e) => setCep(e.target.value)}
+          onKeyDown={handleKeyPress}
         />
         <button
           onClick={handleSearch}
@@ -66,19 +74,33 @@ export default function InputField() {
       {error && <p className="text-red-500 text-center mt-4">{error}</p>}
 
       {data && (
-        <div className="text-base sm:text-lg md:text-xl p-4 mt-6 max-w-3xl mx-auto overflow-x-auto">
+        <>
+        <div className="font-mono text-base sm:text-lg md:text-xl p-4 mt-6 max-w-3xl mx-auto overflow-x-auto">
           <h2 className="text-lg sm:text-xl font-semibold mb-3">Resultado:</h2>
           <ul className="space-y-2">
-            <li><strong>CEP:</strong> {data.cep}</li>
-            <li><strong>Logradouro:</strong> {data.logradouro}</li>
-            <li><strong>Bairro:</strong> {data.bairro}</li>
-            <li><strong>Cidade:</strong> {data.localidade}</li>
-            <li><strong>Estado:</strong> {data.uf}</li>
+            <li>
+              <strong>CEP:</strong> {data.cep}
+            </li>
+            <li>
+              <strong>Logradouro:</strong> {data.logradouro}
+            </li>
+            <li>
+              <strong>Bairro:</strong> {data.bairro}
+            </li>
+            <li>
+              <strong>Cidade:</strong> {data.localidade}
+            </li>
+            <li>
+              <strong>Estado:</strong> {data.uf}
+            </li>
             {data.complemento && (
-              <li><strong>Complemento:</strong> {data.complemento}</li>
+              <li>
+                <strong>Complemento:</strong> {data.complemento}
+              </li>
             )}
           </ul>
         </div>
+        </>
       )}
     </>
   );

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 
-
 interface CepData {
   cep: string;
   logradouro: string;
@@ -75,31 +74,33 @@ export default function InputField() {
 
       {data && (
         <>
-        <div className="font-mono text-base sm:text-lg md:text-xl p-4 mt-6 max-w-3xl mx-auto overflow-x-auto">
-          <h2 className="text-lg sm:text-xl font-semibold mb-3">Resultado:</h2>
-          <ul className="space-y-2">
-            <li>
-              <strong>CEP:</strong> {data.cep}
-            </li>
-            <li>
-              <strong>Logradouro:</strong> {data.logradouro}
-            </li>
-            <li>
-              <strong>Bairro:</strong> {data.bairro}
-            </li>
-            <li>
-              <strong>Cidade:</strong> {data.localidade}
-            </li>
-            <li>
-              <strong>Estado:</strong> {data.uf}
-            </li>
-            {data.complemento && (
+          <div className="font-mono text-base sm:text-lg md:text-xl p-4 mt-6 max-w-3xl mx-auto overflow-x-auto">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3">
+              Resultado:
+            </h2>
+            <ul className="space-y-2">
               <li>
-                <strong>Complemento:</strong> {data.complemento}
+                <strong>CEP:</strong> {data.cep}
               </li>
-            )}
-          </ul>
-        </div>
+              <li>
+                <strong>Logradouro:</strong> {data.logradouro}
+              </li>
+              <li>
+                <strong>Bairro:</strong> {data.bairro}
+              </li>
+              <li>
+                <strong>Cidade:</strong> {data.localidade}
+              </li>
+              <li>
+                <strong>Estado:</strong> {data.uf}
+              </li>
+              {data.complemento && (
+                <li>
+                  <strong>Complemento:</strong> {data.complemento}
+                </li>
+              )}
+            </ul>
+          </div>
         </>
       )}
     </>
